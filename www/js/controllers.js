@@ -1,6 +1,18 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope) {})
+.controller('DashCtrl', function($scope, $http) {
+
+  $scope.getImages = function(){
+    var searchParam = "unicorn"
+    $http.get("http://api.giphy.com/v1/gifs/search?&q=" + searchParam + "&api_key=dc6zaTOxFJmzC")
+        .success(function(giphy) {
+            $scope.data = giphy.data;
+        })
+        .error(function(data) {
+            alert("ERROR");
+        });
+  }
+})
 
 .controller('ChatsCtrl', function($scope, Chats) {
   // With the new view caching in Ionic, Controllers are only called
