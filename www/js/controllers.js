@@ -2,16 +2,18 @@ angular.module('starter.controllers', [])
 
 .controller('DashCtrl', function($scope, $http) {
 
-  $scope.getImages = function(){
+    var urlArray = []
     var searchParam = "unicorn"
     $http.get("http://api.giphy.com/v1/gifs/search?&q=" + searchParam + "&api_key=dc6zaTOxFJmzC")
         .success(function(giphy) {
-            $scope.data = giphy.data;
+          for (var i = 0; i < giphy.data.length; i++) {
+            urlArray.push(giphy.data[i].images.original.url)
+            $scope.urls = urlArray
+          }
         })
         .error(function(data) {
             alert("ERROR");
         });
-  }
 })
 
 .controller('ChatsCtrl', function($scope, Chats) {
@@ -33,8 +35,19 @@ angular.module('starter.controllers', [])
   $scope.chat = Chats.get($stateParams.chatId);
 })
 
-.controller('AccountCtrl', function($scope) {
-  $scope.settings = {
-    enableFriends: true
-  };
+.controller('AccountCtrl', function($scope, $http) {
+
+    var urlArray = []
+    var searchParam = $scope.text
+    console.log(searchParam)
+    $http.get("http://api.giphy.com/v1/gifs/search?&q=" + searchParam + "&api_key=dc6zaTOxFJmzC")
+        .success(function(giphy) {
+          for (var i = 0; i < giphy.data.length; i++) {
+            urlArray.push(giphy.data[i].images.original.url)
+            $scope.urls = urlArray
+          }
+        })
+        .error(function(data) {
+            alert("ERROR");
+        });
 });

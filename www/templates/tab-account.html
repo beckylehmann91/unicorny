@@ -1,9 +1,15 @@
 <ion-view view-title="Account">
   <ion-content>
-    <ion-list>
-    <ion-toggle  ng-model="settings.enableFriends">
-        Enable Friends
-    </ion-toggle>
-    </ion-list>
+  <br>
+  <br>
+  <br>
+  <br>
+    <label id="searchForm" class="item item-input">
+      <i class="icon ion-search placeholder-icon"></i>
+      <input name="searchParam" type="search" placeholder="Search" ng-controller="AccountCtrl" ng-model="searchParam.text">
+    </label>
+    <p>Your search results</p>
+    <p>{{text}}
+    <img ng-repeat="url in urls" ng-src="{{url}}" class="image-list-thumb">
   </ion-content>
 </ion-view>
