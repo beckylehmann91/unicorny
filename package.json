@@ -18,8 +18,8 @@
     "cordova-plugin-whitelist",
     "cordova-plugin-console",
     "cordova-plugin-device",
-    "ionic-plugin-keyboard",
-    "cordova-plugin-splashscreen"
+    "cordova-plugin-splashscreen",
+    "ionic-plugin-keyboard"
   ],
   "cordovaPlatforms": [
     "ios"
