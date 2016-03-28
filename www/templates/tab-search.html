@@ -1,0 +1,16 @@
+<ion-view view-title="Search">
+  <ion-content>
+    <div class="list list-inset">
+        <label class="item item-input">
+            <input type="text" placeholder="What GIF would you like to see?" ng-model="search.searchParam">
+        </label>
+        <label class="item item-input">
+            <input type="number" placeholder="How many of 'em do you want to see?" ng-model="search.limit">
+        </label>
+    </div>
+
+    <button class="button button-block button-calm" ng-click="setData()">Show me that {{search.searchParam}}!</button>
+
+    <img ng-repeat="url in urls" ng-src="{{url}}" class="image-list-thumb">
+  </ion-content>
+</ion-view>

@@ -1,4 +1,4 @@
-<ion-view view-title="Chats">
+<!-- <ion-view view-title="Chats">
   <ion-content>
     <ion-list>
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
@@ -12,5 +12,12 @@
         </ion-option-button>
       </ion-item>
     </ion-list>
+  </ion-content>
+</ion-view> -->
+
+<ion-view view-title="Trending">
+  <ion-content ng-controller="TrendingCtrl">
+    <p>Trending</p>
+    <img ng-repeat="url in urls" ng-src="{{url}}" class="image-list-thumb">
   </ion-content>
 </ion-view>
