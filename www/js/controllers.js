@@ -1,6 +1,8 @@
 angular.module('starter.controllers', [])
 
-.controller('UnicornsCtrl', function($scope, $http) {
+.controller('UnicornsCtrl', function($scope, $http, $ionicBackdrop, $ionicModal, $ionicSlideBoxDelegate, $ionicScrollDelegate) {
+
+    $scope.zoomMin = 1;
 
     var apiData = {
       apiUrl: "http://api.giphy.com/v1/gifs/search?&q=",
@@ -12,14 +14,14 @@ angular.module('starter.controllers', [])
 
   $scope.setData = function() {
 
-    var urlArray = []
+    var imagesArray = []
     apiData.limit = $scope.search.limit
 
     $http.get(apiData.apiUrl + apiData.searchParam + apiData.limitString + apiData.limit + apiData.apiKey)
         .success(function(giphy) {
           for (var i = 0; i < giphy.data.length; i++) {
-            urlArray.push(giphy.data[i].images.original.url)
-            $scope.urls = urlArray
+            imagesArray.push({id: i, src: giphy.data[i].images.original.url})
+            $scope.images = imagesArray
             $scope.search.limit = ''
           }
         })
@@ -27,6 +29,35 @@ angular.module('starter.controllers', [])
             alert("ERROR");
         });
   }
+
+  $scope.showImages = function(index) {
+      $scope.activeSlide = index;
+      $scope.showModal('templates/image-detail.html');
+    };
+
+    $scope.showModal = function(templateUrl) {
+      $ionicModal.fromTemplateUrl(templateUrl, {
+        scope: $scope
+      }).then(function(modal) {
+        $scope.modal = modal;
+        $scope.modal.show();
+      });
+    }
+
+    $scope.closeModal = function() {
+      $scope.modal.hide();
+      $scope.modal.remove()
+    };
+
+        $scope.updateSlideStatus = function(slide) {
+      var zoomFactor = $ionicScrollDelegate.$getByHandle('scrollHandle' + slide).getScrollPosition().zoom;
+      if (zoomFactor == $scope.zoomMin) {
+        $ionicSlideBoxDelegate.enableSlide(true);
+      } else {
+        $ionicSlideBoxDelegate.enableSlide(false);
+      }
+    };
+
 })
 
 // .controller('ChatsCtrl', function($scope, Chats) {
@@ -48,22 +79,55 @@ angular.module('starter.controllers', [])
 //   $scope.chat = Chats.get($stateParams.chatId);
 // })
 
-.controller('TrendingCtrl', function($scope, $http) {
+.controller('TrendingCtrl', function($scope, $http, $ionicBackdrop, $ionicModal, $ionicSlideBoxDelegate, $ionicScrollDelegate) {
 
-  var urlArray = []
+  $scope.zoomMin = 1;
+
+  var imagesArray = []
   $http.get("http://api.giphy.com/v1/gifs/trending?&limit=50&api_key=dc6zaTOxFJmzC")
       .success(function(giphy) {
         for (var i = 0; i < giphy.data.length; i++) {
-          urlArray.push(giphy.data[i].images.original.url)
-          $scope.urls = urlArray
+          imagesArray.push({id: i, src: giphy.data[i].images.original.url})
+          $scope.images = imagesArray
         }
       })
       .error(function(data) {
           alert("ERROR");
       });
+
+      $scope.showImages = function(index) {
+      $scope.activeSlide = index;
+      $scope.showModal('templates/image-detail.html');
+    };
+
+    $scope.showModal = function(templateUrl) {
+      $ionicModal.fromTemplateUrl(templateUrl, {
+        scope: $scope
+      }).then(function(modal) {
+        $scope.modal = modal;
+        $scope.modal.show();
+      });
+    }
+
+    $scope.closeModal = function() {
+      $scope.modal.hide();
+      $scope.modal.remove()
+    };
+
+        $scope.updateSlideStatus = function(slide) {
+      var zoomFactor = $ionicScrollDelegate.$getByHandle('scrollHandle' + slide).getScrollPosition().zoom;
+      if (zoomFactor == $scope.zoomMin) {
+        $ionicSlideBoxDelegate.enableSlide(true);
+      } else {
+        $ionicSlideBoxDelegate.enableSlide(false);
+      }
+    };
+
 })
 
-.controller('SearchCtrl', function($scope, $http) {
+.controller('SearchCtrl', function($scope, $http, $ionicBackdrop, $ionicModal, $ionicSlideBoxDelegate, $ionicScrollDelegate) {
+
+  $scope.zoomMin = 1;
 
   var apiData = {
     apiUrl: "http://api.giphy.com/v1/gifs/search?&q=",
@@ -85,13 +149,13 @@ angular.module('starter.controllers', [])
 
     apiData.searchParam = searchString
     apiData.limit = $scope.search.limit
-    var urlArray = [];
+    var imagesArray = [];
 
     $http.get(apiData.apiUrl + apiData.searchParam + apiData.limitString + apiData.limit + apiData.apiKey)
         .success(function(giphy) {
           for (var i = 0; i < giphy.data.length; i++) {
-            urlArray.push(giphy.data[i].images.original.url)
-            $scope.urls = urlArray
+            imagesArray.push({id: i, src: giphy.data[i].images.original.url})
+            $scope.images = imagesArray
             $scope.search.searchParam = ''
             $scope.search.limit = ''
           }
@@ -99,5 +163,34 @@ angular.module('starter.controllers', [])
         .error(function(data) {
             alert("ERROR");
         });
+
   }
+
+    $scope.showImages = function(index) {
+      $scope.activeSlide = index;
+      $scope.showModal('templates/image-detail.html');
+    };
+
+    $scope.showModal = function(templateUrl) {
+      $ionicModal.fromTemplateUrl(templateUrl, {
+        scope: $scope
+      }).then(function(modal) {
+        $scope.modal = modal;
+        $scope.modal.show();
+      });
+    }
+
+    $scope.closeModal = function() {
+      $scope.modal.hide();
+      $scope.modal.remove()
+    };
+
+    $scope.updateSlideStatus = function(slide) {
+      var zoomFactor = $ionicScrollDelegate.$getByHandle('scrollHandle' + slide).getScrollPosition().zoom;
+      if (zoomFactor == $scope.zoomMin) {
+        $ionicSlideBoxDelegate.enableSlide(true);
+      } else {
+        $ionicSlideBoxDelegate.enableSlide(false);
+      }
+    };
 });
