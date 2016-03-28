@@ -1,31 +1,34 @@
 <ion-view>
   <ion-content class="padding text-center blue-background" ng-controller="UnicornsCtrl">
+
     <h1 class="magenta-text">Unicorny</h1>
+
     <div class="magenta-text faded-text center-box">
     Have you been dreaming of the app that would allow you to see as many unicorn GIFs as you could possibly want? Well...Brandon Passley certainly has. Now, it's here! Check out individual unicorn GIFs, see what's trending on Giphy, and even search for your own GIFs (this developer recommends searching "walrus" or "rhino")!
     <p>Now get crackin'. It's not corny...it's <span class="med-text">Unicorny!</span></p>
     </div>
+
     <div class="list list-inset">
-        <label class="item item-input">
-            <input type="number" placeholder="How many of 'em do you want to see?" ng-model="search.limit">
-        </label>
+      <label class="item item-input">
+        <input type="number" placeholder="How many of 'em do you want to see?" ng-model="search.limit">
+      </label>
     </div>
 
     <button class="button button-block button-calm" ng-click="setData()">Show me some unicorns!</button>
 
     <div class="row" ng-repeat="image in images" ng-if="$index % 4 === 0">
-        <div class="col col-25" ng-if="$index < images.length">
-            <img ng-click="showImages($index)" ng-src="{{images[$index].src}}" width="100%" />
-        </div>
-        <div class="col col-25" ng-if="$index + 1 < images.length">
-            <img ng-click="showImages($index)" ng-src="{{images[$index + 1].src}}" width="100%" />
-        </div>
-        <div class="col col-25" ng-if="$index + 2 < images.length">
-            <img ng-click="showImages($index)" ng-src="{{images[$index + 2].src}}" width="100%" />
-        </div>
-        <div class="col col-25" ng-if="$index + 3 < images.length">
-            <img ng-click="showImages($index)" ng-src="{{images[$index + 3].src}}" width="100%" />
-        </div>
+      <div class="col col-25" ng-if="$index < images.length">
+        <img ng-click="showImages($index)" ng-src="{{images[$index].src}}" width="100%" />
+      </div>
+      <div class="col col-25" ng-if="$index + 1 < images.length">
+        <img ng-click="showImages($index)" ng-src="{{images[$index + 1].src}}" width="100%" />
+      </div>
+      <div class="col col-25" ng-if="$index + 2 < images.length">
+        <img ng-click="showImages($index)" ng-src="{{images[$index + 2].src}}" width="100%" />
+      </div>
+      <div class="col col-25" ng-if="$index + 3 < images.length">
+        <img ng-click="showImages($index)" ng-src="{{images[$index + 3].src}}" width="100%" />
+      </div>
     </div>
   </ion-content>
 </ion-view>
