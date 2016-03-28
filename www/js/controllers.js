@@ -37,17 +37,27 @@ angular.module('starter.controllers', [])
 
 .controller('AccountCtrl', function($scope, $http) {
 
-    var urlArray = []
-    var searchParam = $scope.text
-    console.log(searchParam)
-    $http.get("http://api.giphy.com/v1/gifs/search?&q=" + searchParam + "&api_key=dc6zaTOxFJmzC")
-        .success(function(giphy) {
-          for (var i = 0; i < giphy.data.length; i++) {
-            urlArray.push(giphy.data[i].images.original.url)
-            $scope.urls = urlArray
-          }
-        })
-        .error(function(data) {
-            alert("ERROR");
-        });
+  var urlArray = [];
+  var apiData = {
+    apiUrl: "http://api.giphy.com/v1/gifs/search?&q=",
+    searchParam: "",
+    apiKey: "&api_key=dc6zaTOxFJmzC"
+  };
+  $scope.search = apiData
+
+  $scope.completeSearch = function() {
+    apiData.searchParam = $scope.search
+    // $scope.search = ''
+  }
+
+  $http.get(apiData.apiUrl + apiData.searchParam + apiData.apiKey)
+      .success(function(giphy) {
+        for (var i = 0; i < giphy.data.length; i++) {
+          urlArray.push(giphy.data[i].images.original.url)
+          $scope.urls = urlArray
+        }
+      })
+      .error(function(data) {
+          alert("ERROR");
+      });
 });
