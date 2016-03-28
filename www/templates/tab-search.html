@@ -3,30 +3,29 @@
   <br>
   <h1 class="magenta-text med-text text-center">Check out more GIFs on Giphy: </h1>
     <div class="list list-inset">
-        <label class="item item-input">
-            <input type="text" placeholder="What GIF would you like to see?" ng-model="search.searchParam">
-        </label>
-        <label class="item item-input">
-            <input type="number" placeholder="How many of 'em do you want to see?" ng-model="search.limit">
-        </label>
+      <label class="item item-input">
+        <input type="text" placeholder="What GIF would you like to see?" ng-model="search.searchParam">
+      </label>
+      <label class="item item-input">
+        <input type="number" placeholder="How many of 'em do you want to see?" ng-model="search.limit">
+      </label>
     </div>
 
     <button class="button button-block button-calm" ng-click="setData()">Show me that {{search.searchParam}}!</button>
 
     <div class="row" ng-repeat="image in images" ng-if="$index % 4 === 0">
-        <div class="col col-25" ng-if="$index < images.length">
-            <img ng-click="showImages($index)" ng-src="{{images[$index].src}}" width="100%" />
-        </div>
-        <div class="col col-25" ng-if="$index + 1 < images.length">
-            <img ng-click="showImages($index)" ng-src="{{images[$index + 1].src}}" width="100%" />
-        </div>
-        <div class="col col-25" ng-if="$index + 2 < images.length">
-            <img ng-click="showImages($index)" ng-src="{{images[$index + 2].src}}" width="100%" />
-        </div>
-        <div class="col col-25" ng-if="$index + 3 < images.length">
-            <img ng-click="showImages($index)" ng-src="{{images[$index + 3].src}}" width="100%" />
-        </div>
+      <div class="col col-25" ng-if="$index < images.length">
+        <img ng-click="showImages($index)" ng-src="{{images[$index].src}}" width="100%" />
+      </div>
+      <div class="col col-25" ng-if="$index + 1 < images.length">
+        <img ng-click="showImages($index)" ng-src="{{images[$index + 1].src}}" width="100%" />
+      </div>
+      <div class="col col-25" ng-if="$index + 2 < images.length">
+        <img ng-click="showImages($index)" ng-src="{{images[$index + 2].src}}" width="100%" />
+      </div>
+      <div class="col col-25" ng-if="$index + 3 < images.length">
+        <img ng-click="showImages($index)" ng-src="{{images[$index + 3].src}}" width="100%" />
+      </div>
     </div>
-<!--     <img ng-repeat="url in urls" ng-src="{{url.src}}" class="image-list-thumb"> -->
   </ion-content>
 </ion-view>
