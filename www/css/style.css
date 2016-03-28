@@ -1,5 +1,46 @@
-.purple-box {
-  background-color:
+.center-box {
+  width: 80%;
+  margin: auto;
+}
+
+.magenta-text {
+  color: #cc00cc;
+}
+
+.blue-background {
+  background-color: #e6ffff;
+}
+
+.faded-text {
+  opacity: 0.5;
+}
+
+#unicorny-logo{
+  height: 50%;
+  width: 50%;
+}
+
+#unicorny-pic {
+  height: 30px;
+  width: 30px;
+  vertical-align: center;
+}
+
+.large-text {
+  font-size: 24px;
+}
+
+.med-text {
+  font-size: 18px;
+}
+
+.dark-teal-text {
+  color: #00b8e6;
+}
+
+.text-center {
+  text-align: center;
+  margin: auto;
 }
 
 .image-list-thumb {
