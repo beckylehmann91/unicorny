@@ -1,14 +1,5 @@
 <div class="modal image-modal transparent">
-  <ion-slide-box show-pager="false" on-slide-changed="slideChanged(index)" active-slide="activeSlide" options="{ pagination: false }">
-    <ion-slide ng-repeat="image in images">
-
-      <ion-scroll direction="xy" scrollbar-x="false" scrollbar-y="false"
-      zooming="true" min-zoom="{{zoomMin}}" style="width: 100%; height: 100%"
-      delegate-handle="scrollHandle{{$index}}" on-scroll="updateSlideStatus(activeSlide)" on-release="updateSlideStatus(activeSlide)">
-
-      <div style="background-image: url( {{image.src}} )" ng-click="closeModal()"></div>
-
-      </ion-scroll>
-    </ion-slide>
-  </ion-slide-box>
+  <ion-slide>
+    <div class="image" style="background-image: url( {{image.src}} )" ng-click="closeModal()"></div>
+  </ion-slide>
 </div>

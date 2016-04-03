@@ -14,17 +14,17 @@
     <button class="button button-block button-calm" ng-click="setData()">Show me that {{search.searchParam}}!</button>
 
     <div class="row" ng-repeat="image in images" ng-if="$index % 4 === 0">
-      <div class="col col-25" ng-click="showImages($index)" ng-if="$index < images.length">
-        <img  ng-src="{{images[$index].src}}" width="100%" />
+      <div class="col col-25" ng-if="$index < images.length">
+        <img ng-click="showImages($index)" ng-src="{{images[$index].src}}" width="100%" />
       </div>
-      <div class="col col-25" ng-click="showImages($index)" ng-if="$index + 1 < images.length">
-        <img ng-src="{{images[$index + 1].src}}" width="100%" />
+      <div class="col col-25" ng-if="$index + 1 < images.length">
+        <img ng-click="showImages($index)" ng-src="{{images[$index + 1].src}}" width="100%" />
       </div>
-      <div class="col col-25" ng-click="showImages($index)" ng-if="$index + 2 < images.length">
-        <img  ng-src="{{images[$index + 2].src}}" width="100%" />
+      <div class="col col-25" ng-if="$index + 2 < images.length">
+        <img ng-click="showImages($index)" ng-src="{{images[$index + 2].src}}" width="100%" />
       </div>
-      <div class="col col-25" ng-click="showImages($index)" ng-if="$index + 3 < images.length">
-        <img ng-src="{{images[$index + 3].src}}" width="100%" />
+      <div class="col col-25" ng-if="$index + 3 < images.length">
+        <img ng-click="showImages($index)" ng-src="{{images[$index + 3].src}}" width="100%" />
       </div>
     </div>
   </ion-content>
