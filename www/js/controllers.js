@@ -65,15 +65,21 @@ angular.module('starter.controllers', [])
   $scope.images = []
   $scope.zoomMin = 1;
 
-  $http.get("http://api.giphy.com/v1/gifs/trending?&limit=50&api_key=dc6zaTOxFJmzC")
-      .success(function(giphy) {
-        for (var i = 0; i < giphy.data.length; i++) {
-          $scope.images.push({id: i, src: giphy.data[i].images.original.url})
-        }
-      })
-      .error(function(data) {
-          alert("ERROR");
-      });
+  $scope.loadMore = function() {
+    $http.get("http://api.giphy.com/v1/gifs/trending?&limit=50&api_key=dc6zaTOxFJmzC")
+        .success(function(giphy) {
+          for (var i = 0; i < giphy.data.length; i++) {
+            $scope.images.push({id: i, src: giphy.data[i].images.original.url})
+            $scope.$broadcast('scroll.infiniteScrollComplete')
+          }
+        })
+        .error(function(data) {
+            alert("ERROR");
+        });
+    $scope.$on('$stateChangeSuccess', function() {
+      $scope.loadMore();
+    })
+  }
 
   $scope.showImages = function(index) {
     $scope.activeSlide = index;
