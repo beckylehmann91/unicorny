@@ -82,7 +82,7 @@ angular.module('starter.controllers', [])
   }
 
   $scope.showImages = function(index) {
-    $scope.activeSlide = index;
+    $scope.activeSlide = $scope.images[index];
     $scope.showModal('templates/image-detail.html');
   };
 

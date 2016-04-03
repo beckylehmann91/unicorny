@@ -1,0 +1,87 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'ionic-zoom-view' ]
+2 info using npm@2.14.20
+3 info using node@v4.4.0
+4 verbose install initial load of /Users/rebeccalehmann/coding-challenges/unicorny/package.json
+5 warn package.json unicorny@1.1.1 No repository field.
+6 warn package.json unicorny@1.1.1 No license field.
+7 verbose readDependencies loading dependencies from /Users/rebeccalehmann/coding-challenges/unicorny/package.json
+8 silly cache add args [ 'ionic-zoom-view', null ]
+9 verbose cache add spec ionic-zoom-view
+10 silly cache add parsed spec Result {
+10 silly cache add   raw: 'ionic-zoom-view',
+10 silly cache add   scope: null,
+10 silly cache add   name: 'ionic-zoom-view',
+10 silly cache add   rawSpec: '',
+10 silly cache add   spec: 'latest',
+10 silly cache add   type: 'tag' }
+11 silly addNamed ionic-zoom-view@latest
+12 verbose addNamed "latest" is being treated as a dist-tag for ionic-zoom-view
+13 info addNameTag [ 'ionic-zoom-view', 'latest' ]
+14 silly mapToRegistry name ionic-zoom-view
+15 silly mapToRegistry using default registry
+16 silly mapToRegistry registry https://registry.npmjs.org/
+17 silly mapToRegistry uri https://registry.npmjs.org/ionic-zoom-view
+18 verbose addNameTag registry:https://registry.npmjs.org/ionic-zoom-view not in flight; fetching
+19 verbose request uri https://registry.npmjs.org/ionic-zoom-view
+20 verbose request no auth needed
+21 info attempt registry request try #1 at 10:19:53 AM
+22 verbose request id a739f1b10065f6ee
+23 http request GET https://registry.npmjs.org/ionic-zoom-view
+24 http 404 https://registry.npmjs.org/ionic-zoom-view
+25 verbose headers { 'content-type': 'application/json',
+25 verbose headers   'cache-control': 'max-age=0',
+25 verbose headers   'content-length': '2',
+25 verbose headers   'accept-ranges': 'bytes',
+25 verbose headers   date: 'Sun, 03 Apr 2016 15:17:20 GMT',
+25 verbose headers   via: '1.1 varnish',
+25 verbose headers   age: '0',
+25 verbose headers   connection: 'keep-alive',
+25 verbose headers   'x-served-by': 'cache-jfk1045-JFK',
+25 verbose headers   'x-cache': 'MISS',
+25 verbose headers   'x-cache-hits': '0',
+25 verbose headers   'x-timer': 'S1459696640.496249,VS0,VE393' }
+26 silly get cb [ 404,
+26 silly get   { 'content-type': 'application/json',
+26 silly get     'cache-control': 'max-age=0',
+26 silly get     'content-length': '2',
+26 silly get     'accept-ranges': 'bytes',
+26 silly get     date: 'Sun, 03 Apr 2016 15:17:20 GMT',
+26 silly get     via: '1.1 varnish',
+26 silly get     age: '0',
+26 silly get     connection: 'keep-alive',
+26 silly get     'x-served-by': 'cache-jfk1045-JFK',
+26 silly get     'x-cache': 'MISS',
+26 silly get     'x-cache-hits': '0',
+26 silly get     'x-timer': 'S1459696640.496249,VS0,VE393' } ]
+27 verbose stack Error: Registry returned 404 for GET on https://registry.npmjs.org/ionic-zoom-view
+27 verbose stack     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:264:12)
+27 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:242:14)
+27 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:172:14)
+27 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:199:22)
+27 verbose stack     at emitTwo (events.js:87:13)
+27 verbose stack     at Request.emit (events.js:172:7)
+27 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1036:10)
+27 verbose stack     at emitOne (events.js:82:20)
+27 verbose stack     at Request.emit (events.js:169:7)
+27 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:963:12)
+28 verbose statusCode 404
+29 verbose pkgid ionic-zoom-view
+30 verbose cwd /Users/rebeccalehmann/coding-challenges/unicorny
+31 error Darwin 14.5.0
+32 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "ionic-zoom-view"
+33 error node v4.4.0
+34 error npm  v2.14.20
+35 error code E404
+36 error 404 Registry returned 404 for GET on https://registry.npmjs.org/ionic-zoom-view
+36 error 404
+36 error 404 'ionic-zoom-view' is not in the npm registry.
+36 error 404 You should bug the author to publish it (or use the name yourself!)
+36 error 404 It was specified as a dependency of 'unicorny'
+36 error 404
+36 error 404 Note that you can also install from a
+36 error 404 tarball, folder, http url, or git url.
+37 verbose exit [ 1, true ]
